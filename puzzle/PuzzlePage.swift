@@ -21,16 +21,14 @@ class PuzzlePage: UIViewController, ViewControllerPage {
 		self.puzzle = model
 		
 		puzzleButtons = [PuzzleButton]()
-		for id in 0..<4 { puzzleButtons.append(PuzzleButton(id: pageId * 4 + id)) }
+		for id in 0..<PuzzleModel.buttonsPerPage { puzzleButtons.append(PuzzleButton(id: pageId * PuzzleModel.buttonsPerPage + id, puzzle: puzzle)) }
 
 		super.init(nibName: nil, bundle: nil)
 		
 		view.backgroundColor = .black
 	}
 	
-	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+	required init?(coder: NSCoder) { fatalError("never") }
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -53,9 +51,6 @@ class PuzzlePage: UIViewController, ViewControllerPage {
 				button.heightAnchor.constraint(equalToConstant: PuzzleButton.widthHeight)
 			])
 		}
-		
-		definesPresentationContext = true
-
 	}
 	
 }
@@ -63,19 +58,25 @@ class PuzzlePage: UIViewController, ViewControllerPage {
 class PuzzleButton: UIButton {
 	var id: Int
 	
+	var puzzle: PuzzleModel
+	
 	static let radius: CGFloat = 25
 	static let widthHeight: CGFloat = PuzzleButton.radius * 2
 	
-	static let padding: CGFloat = 10
+	static let padding: CGFloat = 25
 	
-	public init(id: Int) {
+	public init(id: Int, puzzle: PuzzleModel) {
 		self.id = id
-		super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+		self.puzzle = puzzle
 		
+		super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 		translatesAutoresizingMaskIntoConstraints = false
 		
-		backgroundColor = .green
 		layer.cornerRadius = PuzzleButton.radius
+		
+		setupObservation()
+		
+		self.addTarget(self, action: #selector(chooseCard), for: .touchUpInside)
 	}
 	
 	required init?(coder: NSCoder) {
@@ -98,5 +99,23 @@ class PuzzleButton: UIButton {
 		} else {
 			return self.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -PuzzleButton.padding)
 		}
+	}
+	
+	func setupObservation() {
+		self.puzzle.buttons[id].producer.startWithSignal({ signal, _ in
+			signal.observeValues({ button in
+				DispatchQueue.main.async {
+					if button.matched || button.visible {
+						self.backgroundColor = button.color
+					} else {
+						self.backgroundColor = .gray
+					}
+				}
+			})
+		})
+	}
+	
+	@objc func chooseCard() {
+		puzzle.chooseButton(index: id)
 	}
 }

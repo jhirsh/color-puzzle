@@ -15,6 +15,7 @@ class StatusPage: UIViewController, ViewControllerPage {
 	var pageId: Int!
 	var puzzle: PuzzleModel
 
+	// TODO: create status page that shows you how much the puzzle is done
 	let statusView = StatusCircle(puzzle: PuzzleModel())
 	
 	init(pageId: Int, model: PuzzleModel) {

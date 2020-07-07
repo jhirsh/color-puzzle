@@ -23,8 +23,7 @@ class ViewController: UIPageViewController, UIPageViewControllerDataSource, UIPa
 		
 		pages = [
 			PuzzlePage(pageId: 0, model: puzzle),
-			StatusPage(pageId: 1, model: puzzle),
-			PuzzlePage(pageId: 2, model: puzzle)
+			PuzzlePage(pageId: 1, model: puzzle)
 		]
 		
 		super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
