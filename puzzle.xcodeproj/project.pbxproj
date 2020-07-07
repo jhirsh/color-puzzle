@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5101FD2924B4EFD800DF30B1 /* PuzzleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5101FD2824B4EFD800DF30B1 /* PuzzleButton.swift */; };
 		5104A89424B38DBB0048CD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104A89324B38DBB0048CD61 /* AppDelegate.swift */; };
 		5104A89624B38DBB0048CD61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104A89524B38DBB0048CD61 /* SceneDelegate.swift */; };
 		5104A89824B38DBB0048CD61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104A89724B38DBB0048CD61 /* ViewController.swift */; };
@@ -15,10 +16,11 @@
 		5104A8A824B39CFE0048CD61 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104A8A724B39CFE0048CD61 /* Puzzle.swift */; };
 		5104A8AB24B39D290048CD61 /* ReactiveSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5104A8AA24B39D290048CD61 /* ReactiveSwift */; };
 		5104A8AD24B39E4E0048CD61 /* PuzzlePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5104A8AC24B39E4E0048CD61 /* PuzzlePage.swift */; };
-		513FB03024B3DC8100065A5C /* StatusPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513FB02F24B3DC8100065A5C /* StatusPage.swift */; };
+		513FB03024B3DC8100065A5C /* StatusCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513FB02F24B3DC8100065A5C /* StatusCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5101FD2824B4EFD800DF30B1 /* PuzzleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleButton.swift; sourceTree = "<group>"; };
 		5104A89024B38DBB0048CD61 /* puzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = puzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5104A89324B38DBB0048CD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5104A89524B38DBB0048CD61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +30,7 @@
 		5104A8A124B38DBD0048CD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5104A8A724B39CFE0048CD61 /* Puzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
 		5104A8AC24B39E4E0048CD61 /* PuzzlePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzlePage.swift; sourceTree = "<group>"; };
-		513FB02F24B3DC8100065A5C /* StatusPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPage.swift; sourceTree = "<group>"; };
+		513FB02F24B3DC8100065A5C /* StatusCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5101FD2A24B4F24900DF30B1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5104A8AC24B39E4E0048CD61 /* PuzzlePage.swift */,
+				5101FD2824B4EFD800DF30B1 /* PuzzleButton.swift */,
+				513FB02F24B3DC8100065A5C /* StatusCircle.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		5104A88724B38DBB0048CD61 = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +77,8 @@
 				5104A89324B38DBB0048CD61 /* AppDelegate.swift */,
 				5104A89524B38DBB0048CD61 /* SceneDelegate.swift */,
 				5104A89724B38DBB0048CD61 /* ViewController.swift */,
-				5104A8AC24B39E4E0048CD61 /* PuzzlePage.swift */,
-				513FB02F24B3DC8100065A5C /* StatusPage.swift */,
 				5104A8A724B39CFE0048CD61 /* Puzzle.swift */,
+				5101FD2A24B4F24900DF30B1 /* Components */,
 				5104A89C24B38DBD0048CD61 /* Assets.xcassets */,
 				5104A89E24B38DBD0048CD61 /* LaunchScreen.storyboard */,
 				5104A8A124B38DBD0048CD61 /* Info.plist */,
@@ -151,12 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				513FB03024B3DC8100065A5C /* StatusPage.swift in Sources */,
+				513FB03024B3DC8100065A5C /* StatusCircle.swift in Sources */,
 				5104A89824B38DBB0048CD61 /* ViewController.swift in Sources */,
 				5104A8A824B39CFE0048CD61 /* Puzzle.swift in Sources */,
 				5104A89424B38DBB0048CD61 /* AppDelegate.swift in Sources */,
 				5104A89624B38DBB0048CD61 /* SceneDelegate.swift in Sources */,
 				5104A8AD24B39E4E0048CD61 /* PuzzlePage.swift in Sources */,
+				5101FD2924B4EFD800DF30B1 /* PuzzleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

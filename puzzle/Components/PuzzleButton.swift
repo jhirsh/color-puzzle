@@ -1,59 +1,14 @@
 //
-//  PuzzlePage.swift
+//  PuzzleButton.swift
 //  puzzle
 //
-//  Created by Jonas Hirshland on 7/6/20.
+//  Created by Jonas Hirshland on 7/7/20.
 //  Copyright © 2020 Jonas Hirshland. All rights reserved.
 //
 
 import Foundation
 import ReactiveSwift
 import UIKit
-
-class PuzzlePage: UIViewController, ViewControllerPage {
-	var pageId: Int!
-	var puzzle: PuzzleModel
-	
-	var puzzleButtons: [PuzzleButton]
-	
-	init(pageId: Int, model: PuzzleModel) {
-		self.pageId = pageId
-		self.puzzle = model
-		
-		puzzleButtons = [PuzzleButton]()
-		for id in 0..<PuzzleModel.buttonsPerPage { puzzleButtons.append(PuzzleButton(id: pageId * PuzzleModel.buttonsPerPage + id, puzzle: puzzle)) }
-
-		super.init(nibName: nil, bundle: nil)
-		
-		view.backgroundColor = .black
-	}
-	
-	required init?(coder: NSCoder) { fatalError("never") }
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(true)
-		
-		let safeArea = view.safeAreaLayoutGuide
-		
-		for puzzleButton in puzzleButtons.enumerated() {
-			let button = puzzleButton.element
-			
-			view.addSubview(button)
-			
-			NSLayoutConstraint.activate([
-				button.xPlacementConstraint(safeArea: safeArea),
-				button.yPlacementConstraint(safeArea: safeArea),
-				button.widthAnchor.constraint(equalToConstant: PuzzleButton.widthHeight),
-				button.heightAnchor.constraint(equalToConstant: PuzzleButton.widthHeight)
-			])
-		}
-	}
-	
-}
 
 class PuzzleButton: UIButton {
 	var id: Int
